@@ -185,6 +185,11 @@ function myPort() {
 
     const li = document.createElement("li");
 
+    const anchor2 = document.createElement("a");
+    anchor2.setAttribute("href", "#");
+    anchor2.setAttribute("class", "button alt");
+    anchor2.textContent = "Find out more";
+
     myPortRow.appendChild(col);
     col.appendChild(section);
     section.appendChild(anchor);
@@ -195,6 +200,91 @@ function myPort() {
     header.appendChild(h3);
     footer.appendChild(ul);
     ul.appendChild(li);
+    li.appendChild(anchor2);
   });
 }
 myPort();
+
+const blogData = [
+  {
+    title: "Magna tempus consequat",
+    date: "21.08.2022",
+    text: "Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.",
+    commentCount: 33,
+    link: "blog-1.html",
+    image: "images/pic08.jpg",
+  },
+  {
+    title: "Aptent veroeros aliquam",
+    date: "22.08.2022",
+    text: "Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.",
+    commentCount: 63,
+    link: "blog-2.html",
+    image: "images/pic09.jpg",
+  },
+];
+
+const blogRow = document.querySelector("#blog-section .row");
+console.log(blogRow);
+function createblog() {
+  blogData.forEach((el) => {
+    const col = document.createElement("div");
+    col.setAttribute("class", "col-6");
+
+    const section = document.createElement("section");
+    section.classList.add("box");
+
+    const anchor = document.createElement("a");
+    anchor.setAttribute("href", "#");
+    anchor.setAttribute("class", "image featured");
+
+    const img = document.createElement("img");
+    img.setAttribute("src", el.image);
+    img.setAttribute("alt", "");
+
+    const header = document.createElement("header");
+
+    const h3 = document.createElement("h3");
+    h3.textContent = el.title;
+
+    const p = document.createElement("p");
+    p.textContent = el.date;
+
+    const p2 = document.createElement("p");
+    p2.textContent = el.text;
+
+    const footer = document.createElement("footer");
+
+    const ul = document.createElement("ul");
+    ul.classList.add = "actions";
+
+    const li = document.createElement("li");
+
+    const a2 = document.createElement("a");
+    a2.setAttribute("href", el.link);
+    a2.setAttribute("class", "button icon solid fa-file-alt");
+    a2.textContent = "Continue Reading";
+
+    const li2 = document.createElement("li");
+    const a3 = document.createElement("a");
+    a3.setAttribute("href", el.link);
+    a3.setAttribute("class", "button alt icon solid fa-comment");
+    a3.textContent = `${el.commentCount} comments`;
+
+    blogRow.appendChild(col);
+    col.appendChild(section);
+    section.appendChild(anchor);
+    section.appendChild(header);
+    section.appendChild(p2);
+    section.appendChild(footer);
+    anchor.appendChild(img);
+    header.appendChild(h3);
+    header.appendChild(p);
+    footer.appendChild(ul);
+    ul.appendChild(li);
+    ul.appendChild(li2);
+    li.appendChild(a2);
+    li2.appendChild(a3);
+  });
+}
+createblog();
