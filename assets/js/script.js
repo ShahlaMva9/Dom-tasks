@@ -288,3 +288,43 @@ function createblog() {
   });
 }
 createblog();
+
+const socialLink = document.querySelector("#social-section .social ");
+
+const socialLinks = [
+  {
+    icon: "facebook-f",
+    name: "Facebook",
+    link: "https://www.facebook.com",
+  },
+  {
+    icon: "twitter",
+    name: "Twitter",
+    link: "https://www.twitter.com",
+  },
+  {
+    icon: "dribbble",
+    name: "Dribbble",
+    link: "https://www.dribbble.com",
+  },
+  {
+    icon: "tumblr",
+    name: "Tumblr",
+    link: "https://www.tumblr.com",
+  },
+  {
+    icon: "linkedin-in",
+    name: "LinkedIn",
+    link: "https://www.linkedin.com",
+  },
+];
+
+socialLinks.forEach((el) => {
+  socialLink.innerHTML += `
+                    <li>
+                    <a class="icon brands fa-${el.icon}" href="${el.link}"
+                      ><span class="label">${el.name}</span></a
+                    >
+                    </li>
+                           `;
+}
